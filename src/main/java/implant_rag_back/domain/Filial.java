@@ -41,7 +41,7 @@ public class Filial {
 	public Filial() {
 		
 		this.cliente = new Cliente();
-		
+		this.estabelecimento = new Estabelecimento();
 	}
 
 
