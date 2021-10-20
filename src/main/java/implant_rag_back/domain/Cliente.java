@@ -11,38 +11,49 @@ import javax.persistence.Table;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCliente;
+	private Long id;
 	
 	private String nomeEmpresa;
 	
-	private Boolean statusCliente;
+	private Boolean status;
 	
 
-public Cliente() {
+	public Cliente() {
+		
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
+	}
+
+
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
+	}
+
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
 	
-}
-
-
-public Long getIdCliente() {
-	return idCliente;
-}
-public void setIdCliente(Long idCliente) {
-	this.idCliente = idCliente;
-}
-public String getNomeEmpresa() {
-	return nomeEmpresa;
-}
-public void setNomeEmpresa(String nomeEmpresa) {
-	this.nomeEmpresa = nomeEmpresa;
-}
-public Boolean getStatusCliente() {
-	return statusCliente;
-}
-public void setStatusCliente(Boolean statusCliente) {
-	this.statusCliente = statusCliente;
-}
-
-
+	
+	
 
 
 	

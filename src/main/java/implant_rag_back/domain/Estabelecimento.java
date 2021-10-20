@@ -1,70 +1,79 @@
 package implant_rag_back.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
+import javax.persistence.Table;
+@Entity
+@Table(name="estabelecimento")
 public class Estabelecimento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idEstabelecimento;
+	private Long id;
 	
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="idOperadora")
-	private Operadora idOperadora = new Operadora();
+	private Operadora operadora;
 	
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="idFilial")
-	private Filial idFilial = new Filial();
+	private Filial filial;
 	
 	
 	private String codFilialOperadora;
 
+	public Estabelecimento() {
+		this.operadora = new Operadora();
+		this.filial = new Filial();
+		
+	}
 
-	public Long getIdEstabelecimento() {
-		return idEstabelecimento;
+	
+
+	public Long getId() {
+		return id;
 	}
 
 
-	public void setIdEstabelecimento(Long idEstabelecimento) {
-		this.idEstabelecimento = idEstabelecimento;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
-	public Operadora getIdOperadora() {
-		return idOperadora;
+
+	public Operadora getOperadora() {
+		return operadora;
 	}
 
-
-	public void setIdOperadora(Operadora idOperadora) {
-		this.idOperadora = idOperadora;
+	public void setOperadora(Operadora operadora) {
+		this.operadora = operadora;
 	}
 
-
-	public Filial getIdFilial() {
-		return idFilial;
+	public Filial getFilial() {
+		return filial;
 	}
 
-
-	public void setIdFilial(Filial idFilial) {
-		this.idFilial = idFilial;
+	public void setFilial(Filial filial) {
+		this.filial = filial;
 	}
-
 
 	public String getCodFilialOperadora() {
 		return codFilialOperadora;
 	}
 
-
 	public void setCodFilialOperadora(String codFilialOperadora) {
 		this.codFilialOperadora = codFilialOperadora;
 	}
 	
+
 	
 	
 }

@@ -1,52 +1,52 @@
 package implant_rag_back.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="operadora")
 public class Operadora {
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idOperadora;	
+	private Long id;	
 	
 	
-	private String nomeOperadora;
+	private String nome;
 	
-	private String termoOperadora;
+	private String termo;
 	
 	public Operadora() {
-		
-		
-		
 	}
 
-	public Long getIdOperadora() {
-		return idOperadora;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdOperadora(Long idOperadora) {
-		this.idOperadora = idOperadora;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getNomeOperadora() {
-		return nomeOperadora;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeOperadora(String nomeOperadora) {
-		this.nomeOperadora = nomeOperadora;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getTermoOperadora() {
-		return termoOperadora;
+	public String getTermo() {
+		return termo;
 	}
 
-	public void setTermoOperadora(String termoOperadora) {
-		this.termoOperadora = termoOperadora;
+	public void setTermo(String termo) {
+		this.termo = termo;
 	}
-	
-	
+
 	
 	
 }

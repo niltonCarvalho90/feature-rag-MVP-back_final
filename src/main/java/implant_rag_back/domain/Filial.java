@@ -1,6 +1,7 @@
 package implant_rag_back.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class Filial {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idFilial;	
+	private Long id;	
 	
 	
 	private String razaoSocial;
@@ -32,25 +33,25 @@ public class Filial {
 	private Estabelecimento estabelecimento;
 	
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="idCliente")
-	private Cliente cliente = new Cliente();
+	private Cliente cliente;
 	
 	
 	public Filial() {
 		
-		
+		this.cliente = new Cliente();
 		
 	}
 
 
-	public Long getIdFilial() {
-		return idFilial;
+	public Long getId() {
+		return id;
 	}
 
 
-	public void setIdFilial(Long idFilial) {
-		this.idFilial = idFilial;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
@@ -94,6 +95,16 @@ public class Filial {
 	}
 
 
+	public Estabelecimento getEstabelecimento() {
+		return estabelecimento;
+	}
+
+
+	public void setEstabelecimento(Estabelecimento estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -102,8 +113,8 @@ public class Filial {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
+
+
 	
 	
 	
