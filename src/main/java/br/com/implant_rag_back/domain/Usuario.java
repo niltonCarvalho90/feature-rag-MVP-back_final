@@ -1,4 +1,4 @@
-package implant_rag_back.domain;
+package br.com.implant_rag_back.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,13 +28,13 @@ public class Usuario {
 	
 	private String senha;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
 
 	
 	public Usuario() {
-		this.cliente = new Cliente();
+		//this.cliente = new Cliente();
 	}
 
 

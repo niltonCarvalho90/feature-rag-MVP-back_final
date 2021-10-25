@@ -1,4 +1,4 @@
-package implant_rag_back.domain;
+package br.com.implant_rag_back.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
@@ -17,12 +18,12 @@ public class Estabelecimento {
 	private Long id;
 	
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idOperadora")
 	private Operadora operadora;
 	
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idFilial")
 	private Filial filial;
 	
@@ -30,8 +31,8 @@ public class Estabelecimento {
 	private String codFilialOperadora;
 
 	public Estabelecimento() {
-		this.operadora = new Operadora();
-		this.filial = new Filial();
+	//	this.operadora = new Operadora();
+		//this.filial = new Filial();
 		
 	}
 
