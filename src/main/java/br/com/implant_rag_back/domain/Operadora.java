@@ -1,4 +1,4 @@
-package implant_rag_back.domain;
+package br.com.implant_rag_back.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

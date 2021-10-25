@@ -1,31 +1,33 @@
-package implant_rag_back.controllers;
+package br.com.implant_rag_back.controllers;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import implant_rag_back.domain.Operadora;
-import implant_rag_back.repository.OperadoraRepository;
+import br.com.implant_rag_back.domain.Operadora;
+import br.com.implant_rag_back.repository.OperadoraRepository;
 
 
 @RestController
-public class GreetingsController {
+@RequestMapping(value = "/operadora")
+public class OperadoraController {
 	
 	@Autowired 
 	private OperadoraRepository operadoraRepository;
     
-    @PostMapping(value = "salvarOperadora") 
-    @ResponseBody  
+    @PostMapping(value = "/salvar") 
     public ResponseEntity<Operadora> salvar(@RequestBody Operadora operadora){ 
     	
     	Operadora oper = operadoraRepository.save(operadora);
     	return new ResponseEntity<Operadora>(oper, HttpStatus.CREATED);
     	
     }
+    
+    
  
 }
