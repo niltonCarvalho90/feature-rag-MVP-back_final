@@ -1,5 +1,7 @@
 package br.com.implant_rag_back.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,9 @@ public class OperadoraService {
 	public Operadora salvar(Operadora operadora) {
 		return operadoraRepository.save(operadora);
 	}
+	
+	public List<Operadora> listar() {
+		return operadoraRepository.findAll();
+	}
 }
+;

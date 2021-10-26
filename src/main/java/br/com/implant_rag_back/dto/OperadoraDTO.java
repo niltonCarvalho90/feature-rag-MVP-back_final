@@ -7,9 +7,18 @@ public class OperadoraDTO {
 	public OperadoraDTO() {
 	}
 	
+	private Long id;
 	private String nome;
 	private String termo;
+	
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -27,7 +36,8 @@ public class OperadoraDTO {
 	}
 
 	public Operadora transformaParaObjeto() {
-		return new Operadora();
+		return new Operadora( this.id, this.nome, this.termo);
 	}
 
+	
 }

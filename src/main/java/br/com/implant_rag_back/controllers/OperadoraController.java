@@ -1,9 +1,12 @@
 package br.com.implant_rag_back.controllers;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,13 +29,20 @@ public class OperadoraController {
 	}
     
     @PostMapping(value = "/salvar") 
-    public ResponseEntity<OperadoraDTO> salvar(@RequestBody Operadora operadora){ 
+    public ResponseEntity<Operadora> salvar(@RequestBody OperadoraDTO operadora){ 
     	
-    	Operadora oper = operadoraService.salvar(OperadoraDTO.transformaParaObjeto);
-    	return new ResponseEntity<>(OperadoraRespostaDTO.transformaEmDTO(operadora), HttpStatus.CREATED);
+    	Operadora oper = operadoraService.salvar(operadora.transformaParaObjeto());
+        return new ResponseEntity<>(oper, HttpStatus.CREATED);
     	
     }
     
+    @GetMapping(value = "/listar") 
+    public ResponseEntity<List<Operadora>> listar(){ 
+    	
+    	List<Operadora> oper = operadoraService.listar();
+        return new ResponseEntity<List<Operadora>>(oper, HttpStatus.OK);
+    	
+    }
     
  
 }

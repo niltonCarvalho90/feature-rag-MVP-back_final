@@ -32,11 +32,6 @@ public class Usuario {
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
 
-	
-	public Usuario() {
-		//this.cliente = new Cliente();
-	}
-
 
 	public Long getId() {
 		return id;

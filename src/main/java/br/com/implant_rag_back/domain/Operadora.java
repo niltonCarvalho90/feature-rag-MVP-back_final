@@ -15,12 +15,17 @@ public class Operadora {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
-	
 	private String nome;
-	
 	private String termo;
 	
 	public Operadora() {
+		
+	}
+	
+	public Operadora(Long id, String nome, String termo) {
+		this.id = id;
+		this.nome = nome;
+		this.termo = termo;
 	}
 
 	public Long getId() {
@@ -46,7 +51,4 @@ public class Operadora {
 	public void setTermo(String termo) {
 		this.termo = termo;
 	}
-
-	
-	
 }
