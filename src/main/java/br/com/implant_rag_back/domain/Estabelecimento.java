@@ -29,13 +29,6 @@ public class Estabelecimento {
 	
 	
 	private String codFilialOperadora;
-
-	public Estabelecimento() {
-	//	this.operadora = new Operadora();
-		//this.filial = new Filial();
-		
-	}
-
 	
 
 	public Long getId() {

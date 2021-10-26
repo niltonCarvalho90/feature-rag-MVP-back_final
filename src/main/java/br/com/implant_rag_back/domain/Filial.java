@@ -37,12 +37,6 @@ public class Filial {
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
 	
-	
-	public Filial() {
-		
-	//	this.cliente = new Cliente();
-	//	this.estabelecimento = new Estabelecimento();
-	}
 
 
 	public Long getId() {
