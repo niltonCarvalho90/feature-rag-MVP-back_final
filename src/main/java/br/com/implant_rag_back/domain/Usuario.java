@@ -19,18 +19,23 @@ public class Usuario {
 	private Long id;
 	
 	private String nome;
-	
-	
 	private String email;
-	
-	
 	private String telefone;
-	
 	private String senha;
+	private Boolean status;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
+	
+	public Usuario(String nome, String email, String telefone, String senha, Boolean status, Cliente cliente) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.setStatus(status);
+        this.cliente = cliente;
+    }
 
 
 	public Long getId() {
@@ -93,11 +98,13 @@ public class Usuario {
 	}
 
 
-	
+	public Boolean getStatus() {
+		return status;
+	}
 
-	
-	
-	
-	
-	
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
 }
