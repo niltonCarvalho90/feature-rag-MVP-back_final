@@ -24,10 +24,10 @@ public class UsuarioService {
 	    }
 	    
 	    public List<Usuario> validarUsuario(@PathVariable String nome) {
-	        return usuarioRepository.usuario(nome);
+	       return usuarioRepository.findByusuario(nome);
 	    }
 	    
 	    public List<Usuario> validarSenha(@PathVariable String senha) {
-	        return usuarioRepository.senha(senha);
+	        return usuarioRepository.findBysenha(senha);
 	    }
 }

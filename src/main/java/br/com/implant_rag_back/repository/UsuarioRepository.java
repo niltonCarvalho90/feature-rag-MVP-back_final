@@ -12,9 +12,9 @@ import br.com.implant_rag_back.domain.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>  {
 
 	@Query(value = "select nome from Usuario u where trim(u.nome)")
-	List<Usuario> usuario(String nome);
+	List<Usuario> findByusuario(String nome);
 	
-	@Query(value = "select senha from Usuario u where (u.senha)")
-	List<Usuario> senha(String senha);
+	@Query(value = "select senha from Usuario u where trim(u.senha)")
+	List<Usuario> findBysenha(String senha);
 	
 }
