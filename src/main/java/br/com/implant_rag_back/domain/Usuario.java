@@ -36,6 +36,10 @@ public class Usuario {
         this.setStatus(status);
         this.cliente = cliente;
     }
+	
+	public Usuario() {
+		
+	}
 
 
 	public Long getId() {

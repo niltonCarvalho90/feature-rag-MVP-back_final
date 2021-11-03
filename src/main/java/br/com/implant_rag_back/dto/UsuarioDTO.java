@@ -11,8 +11,9 @@ public class UsuarioDTO {
     private String senha;
     private Boolean status;
     private Cliente cliente;
+    
 
-    public String getNome() {
+	public String getNome() {
         return nome;
     }
 
