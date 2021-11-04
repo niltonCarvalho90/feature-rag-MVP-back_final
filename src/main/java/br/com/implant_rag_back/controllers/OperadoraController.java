@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,19 @@ public class OperadoraController {
     	List<Operadora> oper = operadoraService.listar();
         return new ResponseEntity<List<Operadora>>(oper, HttpStatus.OK);
     	
+    }
+    
+    @GetMapping("/buscarNomeOperadora/{nome}")
+    public String BuscarPorCodigoCliente(@PathVariable String nome) {
+
+        String operadora = null;
+        for(Operadora x : operadoraService.buscarOperadoraNome(nome)) {
+
+        operadora = x.getNome(); 
+       }
+        System.out.println(operadora);
+        return operadora;
+        
     }
     
  

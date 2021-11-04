@@ -25,5 +25,9 @@ public class OperadoraService {
 	public List<Operadora> listar() {
 		return operadoraRepository.findAll();
 	}
+	
+	public List<Operadora> buscarOperadoraNome(String nome) {
+		List<Operadora> lista = operadoraRepository.buscarOperadoraNome(nome);
+        return lista;
+    }
 }
-;

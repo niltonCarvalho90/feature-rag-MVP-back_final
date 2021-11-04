@@ -51,9 +51,5 @@ public class UsuarioController {
 
                 return lista;
     }
-      
-  //    @GetMapping("/logar")
-    //  @
-
 
 }
