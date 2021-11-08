@@ -21,13 +21,26 @@ public class OperadoraService {
 	public Operadora salvar(Operadora operadora) {
 		return operadoraRepository.save(operadora);
 	}
-	
+
 	public List<Operadora> listar() {
 		return operadoraRepository.findAll();
 	}
-	
-	public List<Operadora> buscarOperadoraNome(String nome) {
-		List<Operadora> lista = operadoraRepository.buscarOperadoraNome(nome);
-        return lista;
-    }
+
+	public Operadora salvarValidando(Operadora operadoraNome) {
+
+		List<Operadora> listaNome = operadoraRepository.findAll();
+		int cont = 0;
+		for (Operadora y : listaNome) {
+			boolean x = operadoraNome.getNome().equalsIgnoreCase(y.getNome());
+
+			if (x == true) {
+				cont++;
+			}
+		}
+
+			if (cont == 0) {
+				operadoraRepository.save(operadoraNome);
+			}
+		return operadoraNome;
+	}
 }

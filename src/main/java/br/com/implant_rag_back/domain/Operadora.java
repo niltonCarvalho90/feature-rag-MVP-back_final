@@ -7,25 +7,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="operadora")
+@Table(name = "operadora")
 public class Operadora {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
-	
+	private Long id;
+
 	private String nome;
 	private String termo;
-	
+
 	public Operadora() {
-		
+
 	}
-	
+
 	public Operadora(Long id, String nome, String termo) {
 		this.id = id;
 		this.nome = nome;
 		this.termo = termo;
+	}
+
+	public Operadora(String nome) {
+
+		this.nome = nome;
+
 	}
 
 	public Long getId() {
