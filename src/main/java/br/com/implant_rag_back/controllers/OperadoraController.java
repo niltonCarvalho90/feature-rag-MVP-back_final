@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.implant_rag_back.domain.Operadora;
+import br.com.implant_rag_back.dto.OperadoraDTO;
 import br.com.implant_rag_back.service.OperadoraService;
 
 @RestController
@@ -26,9 +27,9 @@ public class OperadoraController {
 	}
 
 	@PostMapping("/salvar")
-	public ResponseEntity<Operadora> salvarOperadoraValidando(@RequestBody Operadora nome) {
+	public ResponseEntity<Operadora> salvarOperadoraValidando(@RequestBody OperadoraDTO operadora) {
 
-		Operadora nomeValidado = operadoraService.salvarValidando(nome);
+		Operadora nomeValidado = operadoraService.salvarValidando(operadora.transformaParaObjeto());
 		return new ResponseEntity<Operadora>(nomeValidado, HttpStatus.CREATED);
 	}
 

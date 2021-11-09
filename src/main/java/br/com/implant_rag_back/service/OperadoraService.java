@@ -14,13 +14,43 @@ public class OperadoraService {
 	private final OperadoraRepository operadoraRepository;
 
 	@Autowired
-	public OperadoraService(OperadoraRepository operadoraRepository) {
+		public OperadoraService(OperadoraRepository operadoraRepository) {
 		this.operadoraRepository = operadoraRepository;
 	}
-
-	public Operadora salvar(Operadora operadora) {
-		return operadoraRepository.save(operadora);
-	}
+	
+//	public String buscarOperadoraValidando (String nome) {
+//
+//        List<Operadora> lista = operadoraRepository.buscarOperadoraNome(nome);
+//
+//           String nomeOperadora = null;
+//           for (Operadora x: lista ) {
+//
+//               nomeOperadora = x.getNome();
+//           }
+//
+//           return nomeOperadora;
+//       }
+//
+//	public Operadora salvar(Operadora operadora, String nome) {
+//		  String busca = buscarOperadoraValidando(nome);
+//	        String nomeInserido = operadora.getNome();
+//	        
+//	        if (busca.equals(nomeInserido)) {
+//	        	System.out.println("Operadora já cadastrada");
+//
+//	            return null;
+//
+//
+//
+//	        } else  {
+//	        	System.out.println("INSERIDO");
+//	            this.operadoraRepository.save(operadora);
+//	        	
+//	        }
+//
+//	        return null;
+//	    }
+	
 
 	public List<Operadora> listar() {
 		return operadoraRepository.findAll();
@@ -35,6 +65,7 @@ public class OperadoraService {
 
 			if (x == true) {
 				cont++;
+				return null;
 			}
 		}
 
