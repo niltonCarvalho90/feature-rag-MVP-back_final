@@ -1,5 +1,6 @@
 package br.com.implant_rag_back.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ResponseDTO.OperadoraResponse;
 import br.com.implant_rag_back.domain.Operadora;
 import br.com.implant_rag_back.dto.OperadoraDTO;
 import br.com.implant_rag_back.service.OperadoraService;
@@ -33,12 +35,26 @@ public class OperadoraController {
 		return new ResponseEntity<Operadora>(nomeValidado, HttpStatus.CREATED);
 	}
 
-	@GetMapping(value = "/listar")
-	public ResponseEntity<List<Operadora>> listar() {
+	@GetMapping(value = "/listar") 
+    public ResponseEntity<OperadoraResponse> listar(){ 
 
-		List<Operadora> oper = operadoraService.listar();
-		return new ResponseEntity<List<Operadora>>(oper, HttpStatus.OK);
+        List<Operadora> oper = operadoraService.listar();
+        List<OperadoraDTO> operadoras = new ArrayList<OperadoraDTO>();
+        
+        int i = 0;
+        for(i=0; i<oper.size(); i++) {
+            OperadoraDTO op = new OperadoraDTO();
+            op.setId(oper.get(i).getId());
+            op.setNome(oper.get(i).getNome());
+            op.setTermo(oper.get(i).getTermo());
+            operadoras.add(op);
+        }
+        OperadoraResponse response = new OperadoraResponse();
+        response.setStatus(HttpStatus.OK);
+        response.setOperadoras(operadoras);
 
-	}
+        return new ResponseEntity<OperadoraResponse>(response, response.getStatus());
+
+    }
 
 }

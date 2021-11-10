@@ -40,4 +40,10 @@ public class OperadoraDTO {
 	}
 
 	
+	public OperadoraDTO(Operadora operadora) {
+		this.nome = operadora.getNome();
+	}
+
+
+	
 }
