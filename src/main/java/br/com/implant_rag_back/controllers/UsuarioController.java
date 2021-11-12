@@ -40,12 +40,12 @@ public class UsuarioController {
 
 	}
 
-	@GetMapping("/{id}")
-	public Usuario buscar(@PathVariable Long id) {
+	@GetMapping("/login")
+	public String buscar(String email, String senha) {
 
-		Usuario lista = usuarioService.buscarPorCodigo(id);
+		return usuarioService.validandoLogin(email, senha);
 
-		return lista;
+		
 	}
 
 }

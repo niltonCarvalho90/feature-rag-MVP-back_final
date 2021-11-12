@@ -20,10 +20,10 @@ public class UsuarioResponse {
     public void setStatus(HttpStatus status) {
         this.status = status;
     }
-    public List<UsuarioDTO> getOperadoras() {
+    public List<UsuarioDTO> getUsuarios() {
         return usuarios;
     }
-    public void setOperadoras(List<UsuarioDTO> usuarios) {
+    public void setUsuarios(List<UsuarioDTO> usuarios) {
         this.usuarios = usuarios;
     }
 

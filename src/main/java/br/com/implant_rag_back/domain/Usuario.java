@@ -25,7 +25,7 @@ public class Usuario {
 	private Boolean status;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idCliente")
+	@JoinColumn(name="idcliente")
 	private Cliente cliente;
 	
 	public Usuario(String nome, String email, String telefone, String senha, Boolean status, Cliente cliente) {

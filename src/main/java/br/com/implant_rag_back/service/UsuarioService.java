@@ -1,7 +1,6 @@
 package br.com.implant_rag_back.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,25 +11,38 @@ import br.com.implant_rag_back.repository.UsuarioRepository;
 @Service
 public class UsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
+	private final UsuarioRepository usuarioRepository;
 
-    @Autowired
-    public UsuarioService(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
+	@Autowired
+	public UsuarioService(UsuarioRepository usuarioRepository) {
+		this.usuarioRepository = usuarioRepository;
+	}
 
+	public List<Usuario> listar() {
 
-    public List<Usuario> listar() {
+		return usuarioRepository.findAll();
+	}
 
-        return usuarioRepository.findAll();
-    }
+	public String validandoLogin(String email, String senha) {
 
-    public Usuario buscarPorCodigo(Long id) {
+		List<Usuario> listLog = usuarioRepository.findAll();
 
-        Optional<Usuario> busca = usuarioRepository.findById(id);
+		String mensagem = null;
+		for (int i = 0; i < listLog.size(); i++) {
 
-        return busca.get();
+			boolean x = listLog.get(i).getEmail().equalsIgnoreCase(email);
+			boolean y = listLog.get(i).getSenha().equalsIgnoreCase(senha);
+			
+			
+			if (y == true && x == true) {
+				mensagem = "Parabéns, você está cadastrado no Banco";
+				
+			} else {
+				mensagem = "Que pena, você não está cadastrado no Banco";
+			}
+		}
 
-    }
+		return mensagem;
+	}
 
 }
