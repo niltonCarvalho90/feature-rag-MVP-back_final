@@ -1,6 +1,5 @@
 package br.com.implant_rag_back.controllers;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,38 +17,35 @@ import br.com.implant_rag_back.domain.Usuario;
 import br.com.implant_rag_back.dto.UsuarioDTO;
 import br.com.implant_rag_back.service.UsuarioService;
 
-
 @RestController
-@RequestMapping(value="/usuarios")
+@RequestMapping(value = "/usuarios")
 public class UsuarioController {
-    @Autowired
-    private final UsuarioService usuarioService;
+	@Autowired
+	private final UsuarioService usuarioService;
 
-    @Autowired
-    public UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+	@Autowired
+	public UsuarioController(UsuarioService usuarioService) {
+		this.usuarioService = usuarioService;
+	}
 
-      @PostMapping("/salvar") 
-        public ResponseEntity<Usuario> salvar(@RequestBody UsuarioDTO userDTO) {
-            Usuario usuario1 = usuarioService.salvar(userDTO.transformaParaObjeto());
-            return new ResponseEntity<>(usuario1, HttpStatus.CREATED);
-        }
-      @GetMapping("/listar")
-        @ResponseBody
-        public ResponseEntity<List<Usuario>> listarTodos() {
+	
 
-            List<Usuario> lista = usuarioService.listar();
+	@GetMapping("/listar")
+	@ResponseBody
+	public ResponseEntity<List<Usuario>> listarTodos() {
 
-            return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
+		List<Usuario> lista = usuarioService.listar();
 
-        }
-      @GetMapping("/{id}")
-        public Usuario buscar(@PathVariable Long id) {
+		return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
 
-                  Usuario lista = usuarioService.buscarPorCodigo(id);
+	}
 
-                return lista;
-    }
+	@GetMapping("/{id}")
+	public Usuario buscar(@PathVariable Long id) {
+
+		Usuario lista = usuarioService.buscarPorCodigo(id);
+
+		return lista;
+	}
 
 }

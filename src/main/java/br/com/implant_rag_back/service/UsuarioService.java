@@ -19,9 +19,7 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Usuario salvar(Usuario usuario) {
-        return usuarioRepository.save(usuario);
-    }
+
     public List<Usuario> listar() {
 
         return usuarioRepository.findAll();
