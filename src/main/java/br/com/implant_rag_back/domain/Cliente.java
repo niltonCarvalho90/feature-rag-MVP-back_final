@@ -17,6 +17,9 @@ public class Cliente {
 	
 	private Boolean status;
 	
+	private Integer codigo;
+	
+	
 
 	public Cliente() {
 		
@@ -51,10 +54,16 @@ public class Cliente {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-	
-	
-	
 
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
 
 	
 }

@@ -23,26 +23,26 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 
-	public String validandoLogin(String email, String senha) {
+	public Boolean validandoLogin(String email, String senha) {
 
 		List<Usuario> listLog = usuarioRepository.findAll();
 
-		String mensagem = null;
+		Boolean validarLogin = true;
 		for (int i = 0; i < listLog.size(); i++) {
 
-			boolean x = listLog.get(i).getEmail().equalsIgnoreCase(email);
-			boolean y = listLog.get(i).getSenha().equalsIgnoreCase(senha);
+			boolean validaEmail = listLog.get(i).getEmail().equalsIgnoreCase(email);
+			boolean validaSenha = listLog.get(i).getSenha().equalsIgnoreCase(senha);
 			
 			
-			if (y == true && x == true) {
-				mensagem = "Parabéns, você está cadastrado no Banco";
+			if (validaEmail == true && validaSenha == true) {
+				validarLogin = true;
 				
 			} else {
-				mensagem = "Que pena, você não está cadastrado no Banco";
+				validarLogin = false;
 			}
 		}
 
-		return mensagem;
+		return validarLogin;
 	}
 
 }

@@ -38,7 +38,7 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/login")
-	public String buscar(String email, String senha) {
+	public Boolean buscar(String email, String senha) {
 
 		return usuarioService.validandoLogin(email, senha);
 	}
