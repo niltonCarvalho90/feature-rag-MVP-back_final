@@ -8,5 +8,4 @@ import br.com.implant_rag_back.domain.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>  {
 
-	
 }
