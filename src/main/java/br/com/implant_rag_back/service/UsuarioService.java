@@ -31,14 +31,14 @@ public class UsuarioService {
 		for (int i = 0; i < listLog.size(); i++) {
 
 			boolean validaEmail = listLog.get(i).getEmail().equalsIgnoreCase(email);
-			boolean validaSenha = listLog.get(i).getSenha().equalsIgnoreCase(senha);
+			boolean validaSenha = listLog.get(i).getSenha().equalsIgnoreCase(senha);   
 			
 			
 			if (validaEmail == true && validaSenha == true) {
 				validarLogin = true;
 				
 			} else {
-				validarLogin = false;
+				validarLogin =  false;
 			}
 		}
 
