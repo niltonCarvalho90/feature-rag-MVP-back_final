@@ -29,7 +29,8 @@ public class UsuarioService {
 
 		Boolean validarLogin = true;
 		for (int i = 0; i < listLog.size(); i++) {
-
+			
+			
 			boolean validaEmail = listLog.get(i).getEmail().equalsIgnoreCase(email);
 			boolean validaSenha = listLog.get(i).getSenha().equalsIgnoreCase(senha);   
 			
