@@ -20,6 +20,7 @@ public class OperadoraService {
 
 
 	public List<Operadora> listar() {
+		
 		return operadoraRepository.findAll();
 	}
 
@@ -40,5 +41,11 @@ public class OperadoraService {
 				operadoraRepository.save(operadoraNome);
 			}
 		return operadoraNome;
+	}
+	
+	public void removerOperadora(Long id) {
+		
+		operadoraRepository.deleteById(id);
+		
 	}
 }
