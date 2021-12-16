@@ -1,38 +1,29 @@
-package br.com.implant_rag_back.domain;
+package br.com.implant_rag_back.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import br.com.implant_rag_back.domain.Cliente;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+public class ClienteDTO {
 
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-@Entity
-@Table(name = "cliente")
-public class Cliente {
-
-	@Id
 	private Integer codigo;
-
-    @Column(name="nomeempresa")
+	
     private String nomeEmpresa;
 
     private Boolean status;
+    
    
 
-    public Cliente() {
+    public ClienteDTO() {
 
     }
 
-    public Cliente(String nomeEmpresa, Boolean status, int codigo) {
-        super();
+    public ClienteDTO(Long id, String nomeEmpresa, Boolean status, int codigo) {
         this.nomeEmpresa = nomeEmpresa;
         this.status = status;
         this.codigo = codigo;
     }
 
-  
+   
+
     public String getNomeEmpresa() {
         return nomeEmpresa;
     }
@@ -55,6 +46,10 @@ public class Cliente {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+    
+    public Cliente transformaParaObjetoCliente() {
+    		return new Cliente( this.nomeEmpresa, this.status, this.codigo);
     }
 
 }
