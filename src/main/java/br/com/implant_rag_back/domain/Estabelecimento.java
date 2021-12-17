@@ -10,38 +10,49 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="estabelecimento")
+@Table(name = "estabelecimento")
 public class Estabelecimento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idOperadora")
+	@JoinColumn(name = "idOperadora")
 	private Operadora operadora;
-	
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idFilial")
+	@JoinColumn(name = "idFilial")
 	private Filial filial;
+
+	private int codFilialOperadora;
+
+	public Estabelecimento() {
+
+	}
+
+	public Estabelecimento(Operadora operadora, Filial filial, int codFilialOperadora) {
+
+		this.operadora = operadora;
+		this.filial = filial;
+		this.codFilialOperadora = codFilialOperadora;
+	}
 	
-	
-	private String codFilialOperadora;
-	
+	public Estabelecimento(Operadora operadora, int codFilialOperadora) {
+		this.operadora = operadora;
+		this.codFilialOperadora = codFilialOperadora;
+	}
+	public Estabelecimento(int codFilialOperadora) {
+		this.codFilialOperadora = codFilialOperadora;
+	}
 
 	public Long getId() {
 		return id;
 	}
 
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 	public Operadora getOperadora() {
 		return operadora;
@@ -59,15 +70,13 @@ public class Estabelecimento {
 		this.filial = filial;
 	}
 
-	public String getCodFilialOperadora() {
+	public int getCodFilialOperadora() {
 		return codFilialOperadora;
 	}
 
-	public void setCodFilialOperadora(String codFilialOperadora) {
+	public void setCodFilialOperadora(int codFilialOperadora) {
 		this.codFilialOperadora = codFilialOperadora;
 	}
-	
 
-	
-	
+
 }

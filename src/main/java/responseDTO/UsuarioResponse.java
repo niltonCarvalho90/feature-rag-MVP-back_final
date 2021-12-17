@@ -1,4 +1,4 @@
-package ResponseDTO;
+package responseDTO;
 
 import java.util.List;
 
@@ -6,13 +6,13 @@ import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import br.com.implant_rag_back.dto.OperadoraDTO;
+import br.com.implant_rag_back.dto.UsuarioDTO;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OperadoraResponse {
+public class UsuarioResponse {
 	
     private HttpStatus status;
-    private List<OperadoraDTO> operadoras;
+    private List<UsuarioDTO> usuarios;
 
     public HttpStatus getStatus() {
         return status;
@@ -20,11 +20,11 @@ public class OperadoraResponse {
     public void setStatus(HttpStatus status) {
         this.status = status;
     }
-    public List<OperadoraDTO> getOperadoras() {
-        return operadoras;
+    public List<UsuarioDTO> getUsuarios() {
+        return usuarios;
     }
-    public void setOperadoras(List<OperadoraDTO> operadoras) {
-        this.operadoras = operadoras;
+    public void setUsuarios(List<UsuarioDTO> usuarios) {
+        this.usuarios = usuarios;
     }
 
 }

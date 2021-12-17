@@ -1,4 +1,4 @@
-package ResponseDTO;
+package responseDTO;
 
 import java.util.List;
 

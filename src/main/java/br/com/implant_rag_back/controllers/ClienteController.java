@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ResponseDTO.ClienteResponse;
 import br.com.implant_rag_back.domain.Cliente;
 import br.com.implant_rag_back.dto.ClienteDTO;
 import br.com.implant_rag_back.service.ClienteService;
+import responseDTO.ClienteResponse;
 
 @RestController
 @RequestMapping(value="/clientes")

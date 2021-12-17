@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ResponseDTO.OperadoraResponse;
 import br.com.implant_rag_back.domain.Operadora;
 import br.com.implant_rag_back.dto.OperadoraDTO;
 import br.com.implant_rag_back.service.OperadoraService;
+import responseDTO.OperadoraResponse;
 
 @RestController
 @RequestMapping(value = "/operadora")
